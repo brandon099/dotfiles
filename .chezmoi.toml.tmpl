@@ -1,0 +1,9 @@
+sourceDir = "{{ .chezmoi.sourceDir }}"
+
+[data]
+  name = "Brandon Clifford"
+  email = "{{ promptString "email" }}"
+
+[diff]
+  format = "git"
+  pager = "diff-so-fancy"

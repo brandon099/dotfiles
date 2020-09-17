@@ -1,0 +1,46 @@
+[user]
+    email = {{ .email }}
+    name = Brandon Clifford
+[core]
+    editor = vim
+    autocrlf = input
+    whitespace = cr-at-eol
+    excludesfile = {{ .chezmoi.homedir }}/.gitignore_global
+    pager = diff-so-fancy | less --tabs=4 -RFX
+[advice]
+    waitingForEditor = false
+[mergetool]
+    prompt = false
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+[color]
+    interactive = auto
+    pager = true
+    ui = true
+[color "branch"]
+    current = red bold
+    local = magenta bold
+    remote = yellow
+[color "diff"]
+    meta = white dim
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    commit = yellow bold
+    whitespace = red reverse
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = magenta
+[diff]
+    renames = copies
+[push]
+    default = simple
+[pull]
+    rebase = false
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22

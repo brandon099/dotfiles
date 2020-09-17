@@ -1,0 +1,18 @@
+!
+!   .Xresources file
+!   Man pages: xrdb, Xsession
+!
+! --------------------------------------------
+
+!--- Global Settings
+Xft*antialias:                          true
+Xft*hinting:                            true
+Xft*autohint:                           false
+Xft*hintstyle:                          hintslight
+Xft*lcdfilter:                          lcddefault
+Xft*rgba:                               rgb
+
+!--- Rofi - General Settings
+rofi*lines:                             7
+rofi*font:                              Roboto 10
+rofi*terminal:                          termite
