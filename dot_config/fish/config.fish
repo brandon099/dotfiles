@@ -10,6 +10,7 @@ set -x LANG "en_US.UTF-8"
 set -x GOPATH $HOME/.golang/
 set -x LD_LIBRARY_PATH /lib:/usr/lib:/usr/local/lib
 set -x VAGRANT_DEFAULT_PROVIDER libvirt
+set -x GPG_TTY (tty)
 
 if test -e $HOME/.bws
     source $HOME/.bws
