@@ -10,7 +10,6 @@ set -x LANG "en_US.UTF-8"
 set -x GOPATH $HOME/.golang/
 set -x LD_LIBRARY_PATH /lib:/usr/lib:/usr/local/lib
 set -x VAGRANT_DEFAULT_PROVIDER libvirt
-set -x GPG_TTY (tty)
 
 if test -e $HOME/.bws
     source $HOME/.bws
@@ -60,6 +59,8 @@ end
 
 # Load Git Abbreviations
 if status --is-interactive
+    set -x GPG_TTY (tty)
+    gpg-connect-agent updatestartuptty /bye >/dev/null
     if test -e ~/.config/fish/git-abbr.fish
         source $abbr_file
     end
@@ -71,7 +72,9 @@ case Linux
     if not set -q SSH_CONNECTION
         if status --is-login
             if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
-                exec startx -- -keeptty
+                if type -q startx
+                    exec startx -- -keeptty
+                end
             end
         end
     end
