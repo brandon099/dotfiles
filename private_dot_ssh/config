@@ -3,7 +3,7 @@ Include config.d/*
 Host *
     Port 22
     Compression yes
-    Ciphers aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+    Ciphers chacha20-poly1305@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
     ConnectionAttempts 1
     TCPKeepAlive no
     ServerAliveInterval 10
