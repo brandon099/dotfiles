@@ -59,8 +59,6 @@ end
 
 # Load Git Abbreviations
 if status --is-interactive
-    set -x GPG_TTY (tty)
-    gpg-connect-agent updatestartuptty /bye >/dev/null
     if test -e ~/.config/fish/git-abbr.fish
         source $abbr_file
     end
