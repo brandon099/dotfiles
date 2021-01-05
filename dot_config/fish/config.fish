@@ -3,13 +3,14 @@ set fish_greeting
 set fish_term24bit 1
 
 # Exports
-set PATH $HOME/.bin $HOME/.golang/bin $PATH
+set PATH $HOME/.bin $HOME/.golang/bin $HOME/.rbenv/shims $PATH
 set -x EDITOR "vim -X"
 set -x VISUAL vim
 set -x LANG "en_US.UTF-8"
 set -x GOPATH $HOME/.golang/
 set -x LD_LIBRARY_PATH /lib:/usr/lib:/usr/local/lib
 set -x VAGRANT_DEFAULT_PROVIDER libvirt
+set -x RBENV_SHELL fish
 
 if test -e $HOME/.bws
     source $HOME/.bws
