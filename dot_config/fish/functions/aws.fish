@@ -11,7 +11,7 @@ function aws -a cmd -d 'Universal CLI for AWS'
       end
 
     case profiles
-      command sed -n -e 's/^\[\(.*\)\]/\1/p' "$HOME/.aws/credentials"
+      command sed -n -e 's/^\[profile \(.*\)\]/\1/p' "$HOME/.aws/config"
 
     case '*'
       command aws $argv
