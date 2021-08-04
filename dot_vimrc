@@ -174,5 +174,5 @@ function! MyBufferline()
 endfunction
 
 let g:bufferline_echo = 0
-
+let g:vim_markdown_folding_disabled = 1
 set laststatus=2
