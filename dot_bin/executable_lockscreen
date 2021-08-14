@@ -12,7 +12,7 @@ dbus-send --print-reply --dest=com.github.chjj.compton.$disp / \
     com.github.chjj.compton.opts_set string:no_fading_openclose boolean:false
 
 # Suspend notifications
-notify-send DUNST_COMMAND_PAUSE
+dunstctl set-paused true
 
 i3lock -n -e --clock \
              --force-clock \
@@ -43,7 +43,7 @@ i3lock -n -e --clock \
              --ringwrongcolor=$RED
 
 # Resume notifications
-notify-send DUNST_COMMAND_RESUME
+dunstctl set-paused false
 
 sleep 0.2
 dbus-send --print-reply --dest=com.github.chjj.compton.$disp / \
