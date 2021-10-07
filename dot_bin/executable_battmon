@@ -2,8 +2,8 @@
 source ~/.config/global.conf
 
 while true; do
-    batt_level=$(cat $batt_file)
-    batt_status=$(cat /sys/class/power_supply/BAT0/status)
+    batt_level=$(cat $batt_file_dir/capacity)
+    batt_status=$(cat $batt_file_dir/status)
     # Check if there is a battery
     if [ -f $batt_file ]; then
         # If the battery level is less than or equal to 10% and not plugged in, launch battery popup
