@@ -1,3 +1,4 @@
+alacritty
 alsa-utils
 arandr
 arc-gtk-theme
@@ -12,6 +13,7 @@ firefox-developer-edition
 fish
 git
 gnome-calculator
+gnome-keyring
 gpick
 gnupg
 gvfs-smb
@@ -19,7 +21,6 @@ hsetroot
 i3lock-color-git
 iw
 jq
-ldm
 lxappearance
 moreutils
 mtr
@@ -38,7 +39,6 @@ rsync
 scrot
 slop
 sxhkd
-termite
 tmux
 tree
 ttf-roboto

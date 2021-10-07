@@ -120,10 +120,10 @@ alt + shift + z
     /home/bclifford/.bin/lockscreen
 
 super + Return
-    termite -e tmux
+    alacritty -e tmux
 
 super + alt + Return
-    termite -e cava -t cava --geometry=200x100
+    alacritty -e cava -t cava --geometry=200x100
 
 super + space
     rofi -theme nord -show run -display-run "run: "
