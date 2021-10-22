@@ -8,6 +8,7 @@ set GRN "A3BE8CFF"
 
 set disp (string replace ':' "_" $DISPLAY)
 
+# Disable fading in picom temporarlily for i3lock
 dbus-send --print-reply --dest=com.github.chjj.compton.$disp / \
     com.github.chjj.compton.opts_set string:no_fading_openclose boolean:false
 
@@ -16,35 +17,36 @@ dunstctl set-paused true
 
 i3lock -n -e --clock \
              --force-clock \
-             --timepos="x+100:y+56" \
-             --datepos="tx+25:ty+25" \
-             --indpos="x+210:y+55" \
-             --timestr="%l:%M %p" \
-             --datestr="%a, %b %d" \
+             --time-pos="x+100:y+56" \
+             --date-pos="tx+25:ty+25" \
+             --ind-pos="x+210:y+55" \
+             --time-str="%l:%M %p" \
+             --date-str="%a, %b %d" \
              --radius=20 \
              --ring-width=2 \
-             --veriftext="" \
-             --wrongtext="" \
-             --noinputtext="" \
+             --verif-text="" \
+             --wrong-text="" \
+             --noinput-text="" \
              --line-uses-inside \
              --color=343D46 \
-             --timecolor=$FG \
-             --datecolor=$FG \
-             --verifcolor=FFFFFF00 \
-             --wrongcolor=FFFFFF00 \
-             --separatorcolor=$FG \
-             --ringcolor=$FG \
-             --keyhlcolor=$BGLITE \
-             --bshlcolor=$RED \
-             --insidecolor=$BG \
-             --insidevercolor=$GRN \
-             --insidewrongcolor=$RED \
-             --ringvercolor=$GRN \
-             --ringwrongcolor=$RED
+             --time-color=$FG \
+             --date-color=$FG \
+             --verif-color=FFFFFF00 \
+             --wrong-color=FFFFFF00 \
+             --separator-color=$FG \
+             --ring-color=$FG \
+             --keyhl-color=$BGLITE \
+             --bshl-color=$RED \
+             --inside-color=$BG \
+             --insidever-color=$GRN \
+             --insidewrong-color=$RED \
+             --ringver-color=$GRN \
+             --ringwrong-color=$RED
 
 # Resume notifications
 dunstctl set-paused false
 
 sleep 0.2
+# Re-enable fading in picom
 dbus-send --print-reply --dest=com.github.chjj.compton.$disp / \
     com.github.chjj.compton.opts_set string:no_fading_openclose boolean:true
