@@ -1,53 +1,74 @@
 [global]
-    ### Display ###
-
-    # Which monitor should the notifications be displayed on.
     monitor = 0
 
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
     #   keyboard: follow window with keyboard focus
     #   none: don't follow anything
-    #
-    # "keyboard" needs a window manager that exports the
-    # _NET_ACTIVE_WINDOW property.
-    # This should be the case for almost all modern window managers.
-    #
-    # If this option is set to mouse or keyboard, the monitor option
-    # will be ignored.
     follow = mouse
 
-    # The geometry of the window:
-    #   [{width}]x{height}[+/-{x}+/-{y}]
-    # The geometry of the message window.
-    # The height is measured in number of notifications everything else
-    # in pixels.  If the width is omitted but the height is given
-    # ("-geometry x2"), the message window expands over the whole screen
-    # (dmenu-like).  If width is 0, the window expands to the longest
-    # message displayed.  A positive x is measured from the left, a
-    # negative from the right side of the screen.  Y is measured from
-    # the top and down respectively.
-    # The width can be negative.  In this case the actual width is the
-    # screen width minus the width defined in within the geometry option.
-    #geometry = "300x5-30+20"
-    geometry = "0x15-20+20"
+    # The width of the notification window in pixels. This can be a single
+    # number to specify a constant width or two numbers for the min and max
+    # width. The notification will expand from the min width as neccesary.
+    width = (0,300)
 
-    # Show how many messages are currently hidden (because of geometry).
+    # Maximum height of a single notification
+    #height = 100
+
+    # The number of notifications that can appear at one time. When this
+    # limit is reached any additional notifications will be queued and
+    # displayed when the currently displayed ones either time out or are
+    # manually dismissed. The value 0 means no limit. If indicate_hidden is
+    # true, then the specified limit is reduced by 1 and the last notification
+    # is a message informing how many hidden notifications are waiting to be
+    # displayed. See the indicate_hidden entry for more information.
+    notification_limit = 0
+
+    # The origin of the notification window on the screen. It can then be moved
+    # with offset. Origin can be one of: top-left top-center top-right
+    # bottom-left bottom-center bottom-right left-center center right-center
+    origin = top-right
+
+    # Respectively the horizontal and vertical offset in pixels from the corner
+    # of the screen specified by origin. Both values should always be positive
+    # or zero.
+    offset = 20x20
+
+    # Specifies a scale factor for dimensions to adapt notifications to HiDPI
+    # screens. This scales the notification geometry and it's contents. It is not
+    # recommended to use a fractional scaling factor, as this may result in things
+    # being one pixel off. Try to use a whole number scaling factor and adjust the
+    # font size and other sizes as needed. If 0 is specified, the scale factor is
+    # auto-detected.
+    scale = 0
+
+    # When an integer value is passed to dunst as a hint (see NOTIFY-SEND), a
+    # progress bar will be drawn at the bottom of the notification. This behavior can
+    # be turned off by setting this setting to false.
+    progress_bar = true
+
+    # The height of the progress bar in pixel. This includes the frame. Make
+    # sure this value is bigger than twice the frame width.
+    progress_bar_height = 2
+
+    # The minimum width of the progress bar in pixels. The notification is
+    # rescaled to fit the bar.
+    progress_bar_min_width = 150
+
+    # The maximum width of the progress bar in pixels. The notification is
+    # resized to fit the progress bar.
+    progress_bar_max_width = 300
+
+    # The frame width of the progress bar in pixels. This value should be
+    # smaller than half of the progress bar height.
+    progress_bar_frame_width = 1
+
+    # Show how many messages are currently hidden (because of the notification limit, if set above 0).
     indicate_hidden = yes
 
-    # Shrink window if it's smaller than the width.  Will be ignored if
-    # width is 0.
-    shrink = no
-
-    # The transparency of the window.  Range: [0; 100].
-    # This option will only work if a compositing window manager is
-    # present (e.g. xcompmgr, compiz, etc.).
+    # A 0-100 range on how transparent the notification window should be, with 0
+    # being fully opaque and 100 invisible.
     transparency = 0
-
-    # The height of the entire notification.  If the height is smaller
-    # than the font height and padding combined, it will be raised
-    # to the font height and padding.
-    notification_height = 0
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -59,6 +80,11 @@
 
     # Horizontal padding.
     horizontal_padding = 8
+
+    # The distance in pixels from the text to the icon (or vice versa) in the
+    # horizontal axis. Setting this to a non-zero value overwrites any padding that
+    # horizontal_padding was adding between the notification text and icon.
+    text_icon_padding = 0
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
@@ -84,12 +110,26 @@
     # Transient notifications ignore this setting.
     idle_threshold = 120
 
+    # Layer (Wayland only)
+    # One of bottom, top or overlay. Place dunst notifications on the selected
+    # layer. Using overlay will cause notifications to be displayed above fullscreen
+    # windows, though this may also occur at top depending on your compositor.
+    # The bottom layer is below all windows and above the background.
+    layer = overlay
+
+    # Force the use of X11 output, even on a wayland compositor. This setting
+    # has no effect when not using a Wayland compositor.
+    force_xwayland = false
+
     ### Text ###
 
+    # Defines the font or font set used. Optionally set the size as a decimal
+    # number after the font name and space. Multiple font options can be separated
+    # with commas.
     font = "Font Awesome 5 Free 14, Operator Mono Book 9"
 
     # The spacing between lines.  If the height is smaller than the
-    # font height, it will get raised to the font height.
+    # font height, it will get raised to the font height. Set to 0 to disable.
     line_height = 0
 
     # Possible values are:
@@ -194,26 +234,12 @@
     # Define the class of the windows spawned by dunst
     class = Dunst
 
-    # Print a notification on startup.
-    # This is mainly for error detection, since dbus (re-)starts dunst
-    # automatically after a crash.
-    startup_notification = false
-
-    # Manage dunst's desire for talking
-    # Can be one of the following values:
-    #  crit: Critical features. Dunst aborts
-    #  warn: Only non-fatal warnings
-    #  mesg: Important Messages
-    #  info: all unimportant stuff
-    # debug: all less than unimportant stuff
-    verbosity = mesg
-
     # Define the corner radius of the notification window
     # in pixel size. If the radius is 0, you have no rounded
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 1
+    corner_radius = 4
 
     ### Legacy
 
@@ -249,28 +275,6 @@
     # using the resolution and physical size. This might be useful in setups
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
-
-[shortcuts]
-
-    # Shortcuts are specified as [modifier+][modifier+]...key
-    # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
-    # "mod3" and "mod4" (windows-key).
-    # Xev might be helpful to find names for keys.
-
-    # Close notification.
-    close = ctrl+space
-
-    # Close all notifications.
-    close_all = ctrl+shift+space
-
-    # Redisplay last message(s).
-    # On the US keyboard layout "grave" is normally above TAB and left
-    # of "1". Make sure this key actually exists on your keyboard layout,
-    # e.g. check output of 'xmodmap -pke'
-    history = ctrl+grave
-
-    # Context menu.
-    context = ctrl+shift+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
