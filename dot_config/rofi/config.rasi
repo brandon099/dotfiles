@@ -1,5 +1,5 @@
 configuration {
     font: "Roboto 10";
     terminal: "termite";
-    theme: "nord";
 }
+@theme "nord"

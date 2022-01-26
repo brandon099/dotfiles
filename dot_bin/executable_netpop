@@ -10,12 +10,12 @@ network() {
         if [[ $interface == *"en"* ]] ; then
             if [[ $(cat /sys/class/net/$interface/operstate) = "up" ]] ; then
                 ip_addr=$(ip -4 addr show $interface| grep -oP '(?<=inet\s)\d+(\.\d+){3}')
-                notify-send " $interface" "$ip_addr"
+                dunstify -r 82394 "$interface" "$ip_addr" -i "/usr/share/icons/elementary/status/symbolic/network-wired-symbolic.svg"
             fi
         elif [[ $interface == *"wl"* ]] ; then
             if [[ $(cat /sys/class/net/$interface/operstate) = "up" ]] ; then
                 ip_addr=$(ip -4 addr show $interface| grep -oP '(?<=inet\s)\d+(\.\d+){3}')
-                notify-send " $(iwgetid -r)" "$ip_addr"
+                dunstify -r 82395 "$(iwgetid -r)" "$ip_addr" -i "/usr/share/icons/elementary/status/symbolic/network-wireless-connected-symbolic.svg"
             fi
         fi
     done

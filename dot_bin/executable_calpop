@@ -3,6 +3,6 @@
 source ~/.config/global.conf
 
 calendar() {
-    notify-send "Calendar" "$(cal)"
+    dunstify -r 90235 "$(date +"%B %Y")" "$(cal | awk 'NF>2{print}')" -i "/usr/share/icons/elementary/apps/symbolic/office-calendar-symbolic.svg"
 }
 calendar

@@ -5,6 +5,6 @@ source ~/.config/global.conf
 clock() {
     date=$(date +"%a, %b %-d")
     time=$(date +"%I:%M %p")
-    notify-send "Date" "$date $time"
+    dunstify -r 90234 "Date" "$date $time" -i "/usr/share/icons/elementary/apps/symbolic/office-calendar-symbolic.svg"
 }
 clock

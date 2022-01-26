@@ -25,11 +25,13 @@ bspc config remove_disabled_monitors    true
 bspc config remove_unplugged_monitors   true
 
 bspc rule -a "firefoxdeveloperedition":Places state=floating
+bspc rule -a "firefoxdeveloperedition":Toolkit layer=above state=floating
 bspc rule -a Gcolor3 state=floating
 bspc rule -a Gnome-calculator state=floating
 bspc rule -a Gpick state=floating
 bspc rule -a Leafpad state=floating
 bspc rule -a Lxappearance state=floating
+bspc rule -a NoiseTorch state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Pinentry layer=above state=floating
 bspc rule -a rofi manage=off

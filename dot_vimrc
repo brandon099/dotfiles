@@ -114,6 +114,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'arcticicestudio/nord-vim'
 Plug 'baskerville/vim-sxhkdrc'
+Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+Plug 'lotabout/skim.vim'
 
 " =================== Lightline ===========================
 
