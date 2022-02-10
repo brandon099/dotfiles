@@ -6,28 +6,28 @@ battery() {
         batt_level=$(cat $batt_file_dir/capacity)
         batt_status=$(cat $batt_file_dir/status)
         if [ $batt_status == "Full" ] ; then
-            notify-send "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-full-symbolic.svg"
+            dunstify -r 90236 "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-full-symbolic.svg"
         elif [ $batt_status == "Charging"  ] ; then
             if [ $batt_level -le 10 ] ; then
-                notify-send "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-empty-charging-symbolic.svg"
+                dunstify -r 90236 "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-empty-charging-symbolic.svg"
             elif [ $batt_level -lt 25 ] ; then
-                notify-send "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-caution-charging-symbolic.svg"
+                dunstify -r 90236 "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-caution-charging-symbolic.svg"
             elif [ $batt_level -lt 65 ] ; then
-                notify-send "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-low-charging-symbolic.svg"
+                dunstify -r 90236 "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-low-charging-symbolic.svg"
             elif [ $batt_level -lt 95 ] ; then
-                notify-send "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-good-charging-symbolic.svg"
+                dunstify -r 90236 "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-good-charging-symbolic.svg"
             elif [ $batt_level -gt 95 ] ; then
-                notify-send "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-full-charging-symbolic.svg"
+                dunstify -r 90236 "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-full-charging-symbolic.svg"
             fi
         elif [ $batt_status == "Discharging" ] ; then
             if [ $batt_level -le 10 ] ; then
-                notify-send -u critical -h string:bgcolor:"$WHITE" -h string:fgcolor:"$GREY" "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-empty-symbolic.svg"
+                dunstify -r 90236 -u critical -h string:bgcolor:"$WHITE" -h string:fgcolor:"$GREY" "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-empty-symbolic.svg"
             elif [ $batt_level -lt 50 ] ; then
-                notify-send "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-low-symbolic.svg"
+                dunstify -r 90236 "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-low-symbolic.svg"
             elif [ $batt_level -lt 95 ] ; then
-                notify-send "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-good-symbolic.svg"
+                dunstify -r 90236 "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-good-symbolic.svg"
             elif [ $batt_level -gt 95 ] ; then
-                notify-send "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-full-symbolic.svg"
+                dunstify -r 90236 "Battery" "$batt_level $batt_status" -i "$icon_base_dir/battery-full-symbolic.svg"
             fi
         fi
     fi
