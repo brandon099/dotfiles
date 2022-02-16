@@ -32,6 +32,7 @@ openssh
 openvpn
 pavucontrol
 picom
+polkit-gnome
 ripgrep
 rofi
 roxterm
@@ -46,6 +47,7 @@ ttf-jetbrains-mono
 unclutter
 unrar
 unzip
+usbutils
 vim
 wireless_tools
 wget

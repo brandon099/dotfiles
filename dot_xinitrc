@@ -47,5 +47,8 @@ battmon &
 dbus-update-activation-environment --systemd DISPLAY
 eval $(/usr/bin/gnome-keyring-daemon --start --components=secrets)
 
+# Start Polkit agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 # Start Window Manager
 exec bspwm
