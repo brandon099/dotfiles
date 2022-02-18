@@ -19,6 +19,7 @@ IFS=$'\n\t'
 # Get these values from `lsusb`
 VENDOR="0fd9" # Elgato Vendor
 PRODUCT="0078" # Facecam ID
+FACECAM_DEVICE_PATH="/dev/v4l/by-id/usb-Elgato_Elgato_Facecam_FW47K1A08546-video-index0"
 
 for DIR in $(find /sys/bus/usb/devices/ -maxdepth 1 -type l); do
   if [[ -f $DIR/idVendor && -f $DIR/idProduct &&
@@ -29,7 +30,11 @@ for DIR in $(find /sys/bus/usb/devices/ -maxdepth 1 -type l); do
   fi
 done
 
+sleep 1
+
+v4l2-ctl -d "$FACECAM_DEVICE_PATH" --set-ctrl="brightness=130,contrast=3,saturation=33,sharpness=2,zoom_absolute=2"
+
 # Create v4l2 loopback webcam for browsers and video conferencing apps to use
-ffmpeg -f v4l2 -input_format uyvy422 -framerate 60 -video_size 1920x1080 \
-       -i /dev/v4l/by-id/usb-Elgato_Elgato_Facecam_FW47K1A08546-video-index0 \
+ffmpeg -hwaccel qsv -f v4l2 -input_format uyvy422 -framerate 60 -video_size 1920x1080 \
+       -i "$FACECAM_DEVICE_PATH" \
        -pix_fmt yuyv422 -f v4l2 /dev/video11
