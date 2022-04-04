@@ -45,7 +45,12 @@ battmon &
 
 # Gnome-Keyring
 dbus-update-activation-environment --systemd DISPLAY
-eval $(/usr/bin/gnome-keyring-daemon --start --components=secrets)
+eval "$(/usr/bin/gnome-keyring-daemon --start --components=secrets)"
+
+# Autorandr display management
+if command -v autorandr; then
+    autorandr -c
+fi
 
 # Start Polkit agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
