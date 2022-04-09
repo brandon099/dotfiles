@@ -35,6 +35,6 @@ sleep 1
 v4l2-ctl -d "$FACECAM_DEVICE_PATH" --set-ctrl="brightness=130,contrast=3,saturation=33,sharpness=2,zoom_absolute=2"
 
 # Create v4l2 loopback webcam for browsers and video conferencing apps to use
-ffmpeg -hwaccel qsv -f v4l2 -input_format uyvy422 -framerate 60 -video_size 1920x1080 \
+ffmpeg -f v4l2 -input_format uyvy422 -framerate 60 -video_size 1920x1080 \
        -i "$FACECAM_DEVICE_PATH" \
        -pix_fmt yuyv422 -f v4l2 /dev/video11
