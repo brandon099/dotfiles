@@ -170,5 +170,7 @@ XF86AudioMute
 {XF86AudioRaiseVolume, XF86AudioLowerVolume}
     pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
 
-{XF86MonBrightnessUp, XF86MonBrightnessDown}
-    xbacklight -{inc,dec} 5%
+{XF86MonBrightnessUp}
+    brightnessctl set +10%
+{XF86MonBrightnessDown}
+    brightnessctl set 10%-

@@ -4,6 +4,7 @@ arandr
 arc-gtk-theme
 autorandr
 bind-tools
+brightnessctl
 bspwm
 diff-so-fancy
 dunst
@@ -12,9 +13,9 @@ file-roller
 firefox-developer-edition
 fish
 git
+gcolor2
 gnome-calculator
 gnome-keyring
-gpick
 gnupg
 gvfs-smb
 hsetroot
@@ -30,6 +31,7 @@ ntp
 numlockx
 openssh
 openvpn
+pacman-contrib
 pavucontrol
 picom
 polkit-gnome
@@ -47,7 +49,6 @@ ttf-jetbrains-mono
 unclutter
 unrar
 unzip
-usbutils
 vim
 wireless_tools
 wget
