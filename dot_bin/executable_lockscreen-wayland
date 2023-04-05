@@ -1,0 +1,33 @@
+#!/usr/bin/env fish
+
+set BG "343D46FF"
+set BGLITE "65737EFF"
+set FG "C0C5CEFF"
+set RED "BF616AFF"
+set GRN "A3BE8CFF"
+
+# Suspend notifications
+dunstctl set-paused true
+
+swaylock -e --indicator-x-position=55 \
+            --indicator-y-position=55 \
+            --indicator-radius=20 \
+            --indicator-thickness=2 \
+            --line-uses-inside \
+            --color=343D46 \
+            --text-ver-color=FFFFFF00 \
+            --text-wrong-color=FFFFFF00 \
+            --separator-color=$FG \
+            --ring-color=$FG \
+            --key-hl-color=$BGLITE \
+            --bs-hl-color=$RED \
+            --inside-color=$BG \
+            --inside-ver-color=$GRN \
+            --inside-wrong-color=$RED \
+            --ring-ver-color=$GRN \
+            --ring-wrong-color=$RED
+
+# Resume notifications
+dunstctl set-paused false
+
+sleep 0.2

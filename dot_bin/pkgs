@@ -3,6 +3,7 @@ alsa-utils
 arandr
 arc-gtk-theme
 autorandr
+bemenu
 bind-tools
 brightnessctl
 bspwm
@@ -17,8 +18,11 @@ gcolor2
 gnome-calculator
 gnome-keyring
 gnupg
+grim
 gvfs-smb
 hsetroot
+hyprland
+hyprpicker-git
 i3lock-color-git
 iw
 jq
@@ -34,6 +38,7 @@ openvpn
 pacman-contrib
 pavucontrol
 picom
+playerctl
 polkit-gnome
 ripgrep
 rofi
@@ -41,6 +46,8 @@ roxterm
 rsync
 scrot
 slop
+slurp
+swaylock-effects-git
 sxhkd
 tmux
 tree
@@ -51,8 +58,11 @@ unrar
 unzip
 vim
 wireless_tools
+wireplumber
+wl-clipboard
 wget
 xcursor-human
+xdg-desktop-portal-hyprland-git
 xdo
 xorg-apps
 xorg-server
