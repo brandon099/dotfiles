@@ -8,10 +8,6 @@ set GRN "A3BE8CFF"
 
 set disp (string replace ':' "_" $DISPLAY)
 
-# Disable fading in picom temporarlily for i3lock
-dbus-send --print-reply --dest=com.github.chjj.compton.$disp / \
-    com.github.chjj.compton.opts_set string:no_fading_openclose boolean:false
-
 # Suspend notifications
 dunstctl set-paused true
 
@@ -45,8 +41,3 @@ i3lock -n -e --clock \
 
 # Resume notifications
 dunstctl set-paused false
-
-sleep 0.2
-# Re-enable fading in picom
-dbus-send --print-reply --dest=com.github.chjj.compton.$disp / \
-    com.github.chjj.compton.opts_set string:no_fading_openclose boolean:true
