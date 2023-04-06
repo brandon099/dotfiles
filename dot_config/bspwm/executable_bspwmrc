@@ -27,7 +27,7 @@ bspc config remove_unplugged_monitors   true
 bspc rule -a "firefoxdeveloperedition":Places state=floating
 bspc rule -a "firefoxdeveloperedition":Toolkit layer=above state=floating
 bspc rule -a Gcolor3 state=floating
-bspc rule -a Gnome-calculator state=floating
+bspc rule -a gnome-calculator state=floating
 bspc rule -a Gpick state=floating
 bspc rule -a Leafpad state=floating
 bspc rule -a Lxappearance state=floating
@@ -35,17 +35,18 @@ bspc rule -a NoiseTorch state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Pinentry layer=above state=floating
 bspc rule -a rofi manage=off
+bspc rule -a zoom state=floating
 
 desktops=$(bspc query --monitors)
 
-if [[ $(echo "$desktops" | wc -l) -eq 3 ]]; then
-    bspc monitor ^2 -s ^3
-fi
+#if [[ $(echo "$desktops" | wc -l) -eq 3 ]]; then
+#    bspc monitor ^2 -s ^3
+#fi
 
 # Create desktops
 i=1
 for monitor in $desktops; do
-        bspc monitor "$monitor" -d $i/{i,ii,iii,iv,v}
+        bspc monitor "$monitor" -d $i/{1,2,3,4,5}
     let i++
 done
 

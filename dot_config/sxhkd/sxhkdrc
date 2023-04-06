@@ -131,6 +131,9 @@ super + space
 alt + Tab
     rofi -theme nord -show window -display-window "window: "
 
+XF86Explorer
+    nautilus -w
+
 XF86AudioPlay
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 
@@ -164,13 +167,15 @@ super + {_,shift + }Return
 super + Escape
     pkill -USR1 -x sxhkd
 
+
+super + ctrl + m
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 {XF86AudioRaiseVolume, XF86AudioLowerVolume}
     pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
 
-{XF86MonBrightnessUp}
-    brightnessctl set +10%
-{XF86MonBrightnessDown}
-    brightnessctl set 10%-
+{XF86MonBrightnessUp, XF86MonBrightnessDown}
+    xbacklight -{inc,dec} 5%
