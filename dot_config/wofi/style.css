@@ -1,0 +1,55 @@
+*{
+font-family: 'Operator Mono SSm Lig';
+font-size: 16px;
+font-weight: 300;
+}
+
+#window {
+margin: 0px;
+border: none;
+border-radius: 4px;
+background-color: #3B4252;
+color: #ECEFF4;
+}
+
+#input {
+margin: 25px;
+color: #ECEFF4;
+background-color: #3B4252;
+font-family: 'Operator Mono SSm Lig';
+font-style: italic;
+font-weight: 400;
+border: none;
+outline: none;
+}
+
+#input:focus {
+border-color: #434C5E;
+border: none;
+outline: none;
+}
+
+#inner-box {
+margin: 5px;
+border: none;
+background-color: #3B4252;
+}
+
+#scroll {
+margin-bottom: 25px;
+border: none;
+}
+
+#text {
+color: #ECEFF4;
+} 
+
+#entry {
+margin: 0px 25px;
+}
+
+#entry:selected {
+background-color: #4C566A;
+border: none;
+outline: none;
+}
