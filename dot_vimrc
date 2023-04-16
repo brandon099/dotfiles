@@ -117,6 +117,7 @@ Plug 'baskerville/vim-sxhkdrc'
 Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
 Plug 'lotabout/skim.vim'
 Plug 'will133/vim-dirdiff'
+Plug 'GutenYe/json5.vim'
 
 " =================== Lightline ===========================
 
