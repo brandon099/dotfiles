@@ -21,6 +21,8 @@ set timeoutlen=1000                 "Set mapping timeout length to 1000ms
 set ttimeoutlen=10                  "Set Key code delay to 10ms
 set mouse-=a                        "Turn off mouse mode
 syntax on                           "Turn on syntax highlighting
+set encoding=utf-8                  "Set Encoding to UTF-8
+
 
 " Mapped and Remapped Keys
 cmap w!! w !sudo tee > /dev/null %

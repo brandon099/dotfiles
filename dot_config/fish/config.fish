@@ -68,7 +68,7 @@ switch (uname)
 case Linux
     if not set -q SSH_CONNECTION
         if status --is-login
-            if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
+            if test -z "$DISPLAY" -a "$XDG_VTNR" -eq 1
                 if type -q startx
                     exec startx -- -keeptty
                 end
