@@ -1,0 +1,12 @@
+[".vim/autoload/plug.vim"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    refreshPeriod = "168h"
+[".config/fish/conf.d/__async_prompt.fish"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/acomagu/fish-async-prompt/master/conf.d/__async_prompt.fish"
+    refreshPeriod = "168h"
+[".config/fish/functions/fisher.fish"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish"
+    refreshPeriod = "168h"
