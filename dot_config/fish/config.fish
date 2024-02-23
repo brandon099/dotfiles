@@ -10,10 +10,6 @@ set -x LANG "en_US.UTF-8"
 set -x GOPATH $HOME/.golang/
 set -x LD_LIBRARY_PATH /lib:/usr/lib:/usr/local/lib
 
-if test -e $HOME/.bws
-    source $HOME/.bws
-end
-
 # Java GUI in BSPWM
 set -x _JAVA_AWT_WM_NONREPARENTING 1
 
@@ -50,19 +46,6 @@ function fish_user_key_bindings
     bind \e\e prepend_sudo
 end
 
-# SSH Function to override TERM
-function ssh
-    set -x TERM xterm-256color
-    command ssh $argv -F $HOME/.ssh/config
-end
-
-# Load Git Abbreviations
-if status --is-interactive
-    if test -e ~/.config/fish/git-abbr.fish
-        source $abbr_file
-    end
-end
-
 # Start X at login on Linux
 switch (uname)
 case Linux
@@ -76,3 +59,7 @@ case Linux
         end
     end
 end
+
+# THEME PURE #
+set -g pure_enable_k8s true
+set -g pure_color_git_dirty pure_color_warning
